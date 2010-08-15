@@ -55,7 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="HomeControllerSpecs.cs" />
+    <Compile Include="Controllers\HomeControllerSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ICanHazJob.Web\ICanHazJob.Web.csproj">

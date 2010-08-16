@@ -1,1 +1,1 @@
-ECHO is on.
+# README For ICanHazJob #

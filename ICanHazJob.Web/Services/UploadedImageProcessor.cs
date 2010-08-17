@@ -1,11 +1,10 @@
 using System;
 using System.Drawing;
 using System.IO;
-using ICanHazJob.Web.Models;
 
 namespace ICanHazJob.Web.Services
 {
-    public class UploadedImageProcessor : IUploadedImageProcessor
+    public class UploadedImageProcessor
     {
         private const int MaxWidth = 500;
         private const int MaxHeight = 700;

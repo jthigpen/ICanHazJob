@@ -1,15 +1,14 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Web;
 using System.Web.Mvc;
-using ICanHazJob.Web.Models;
 using ICanHazJob.Web.Services;
 
 namespace ICanHazJob.Web.Controllers
 {
     public class ImageController : Controller
     {
-        private readonly IUploadedImageProcessor uploadedImageProcessor;
+        private readonly UploadedImageProcessor uploadedImageProcessor;
 
         public ImageController()
         {
@@ -27,7 +26,7 @@ namespace ICanHazJob.Web.Controllers
             var savedFilename = SaveUploadedFile();
             var displayFilename = uploadedImageProcessor.ResizeImage(savedFilename);
 
-            ViewData["imageFilename"] = displayFilename;
+            ViewData["imageFilename"] = "/images/" + Path.GetFileName(displayFilename);
 
             return View("Upload");
         }
@@ -49,10 +48,16 @@ namespace ICanHazJob.Web.Controllers
             return savedFilename;
         }
 
+        private void CreateImagesDirectory()
+        {
+            var imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "images");
+            if (!Directory.Exists(imagePath)) Directory.CreateDirectory(imagePath);
+        }
+
         private string GetImageFilename(HttpPostedFileBase uploadedFiles)
         {
-            var savedFilename = Path.Combine(
-                AppDomain.CurrentDomain.BaseDirectory,
+            var savedFilename = Path.Combine(Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory, "images"),
                 Path.GetFileName(uploadedFiles.FileName));
             return savedFilename;
         }

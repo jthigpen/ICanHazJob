@@ -342,3 +342,8 @@ div#title
 {
     width: 6em;
 }
+
+.displayImage
+{
+	clear:both;
+}

@@ -1,7 +1,7 @@
 # Welcome to ICanHazJob #
 
 ## By: James Thigpen ##
-## URL: http://github.com/jthigpen/ICanHazJob ##
+Project URL: http://github.com/jthigpen/ICanHazJob
 
 ### What is this? ###
 

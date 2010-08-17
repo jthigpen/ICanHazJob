@@ -13,15 +13,15 @@ namespace ICanHazJob.Web.Services
         {
             var image = Image.FromFile(imageFilename);
 
-            var resizedImageFilename = string.Empty;
+            var displayFilename = imageFilename;
 
             if (IsOversizedImage(image))
             {
-                resizedImageFilename = GetResizedImageFilename(imageFilename);
+                displayFilename = GetResizedImageFilename(imageFilename);
 
-                ShrinkImage(image, resizedImageFilename);
+                ShrinkImage(image, displayFilename);
             }
-            return resizedImageFilename;
+            return displayFilename;
         }
 
         private void ShrinkImage(Image image, string resizedImageFilename)

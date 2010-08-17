@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -29,6 +30,13 @@ namespace ICanHazJob.Web
             AreaRegistration.RegisterAllAreas();
 
             RegisterRoutes(RouteTable.Routes);
+            CreateImagesDirectory();
+        }
+
+        private static void CreateImagesDirectory()
+        {
+            var imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "images");
+            if (!Directory.Exists(imagePath)) Directory.CreateDirectory(imagePath);
         }
     }
 }

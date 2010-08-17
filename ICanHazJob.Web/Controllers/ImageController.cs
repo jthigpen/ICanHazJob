@@ -48,13 +48,7 @@ namespace ICanHazJob.Web.Controllers
             return savedFilename;
         }
 
-        private void CreateImagesDirectory()
-        {
-            var imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "images");
-            if (!Directory.Exists(imagePath)) Directory.CreateDirectory(imagePath);
-        }
-
-        private string GetImageFilename(HttpPostedFileBase uploadedFiles)
+        private static string GetImageFilename(HttpPostedFileBase uploadedFiles)
         {
             var savedFilename = Path.Combine(Path.Combine(
                 AppDomain.CurrentDomain.BaseDirectory, "images"),

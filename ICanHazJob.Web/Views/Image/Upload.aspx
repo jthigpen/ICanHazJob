@@ -6,11 +6,16 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
+<% if (ViewData.ContainsKey("imageFilename"))
+   { %>
+    <img alt="Your Uploaded Image" src="<%= ViewData["imageFilename"] %>" />
+<% } %>
+
+
     <h2>Create</h2>
     <% using (Html.BeginForm("Save", "Image", FormMethod.Post, new { enctype = "multipart/form-data" })) { %>
 <fieldset>
-    <legend>Create Album</legend>
-    <%= Html.EditorFor(x => x) %>
+    <legend>Uploade Photo</legend>
     <input type="file" name="filename" />
     <p>
         <input type="submit" value="Save" />
